@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<title>{% block title %}{% endblock %} - Flaskr</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+<nav>
+  <h1>Artistas</h1>
+  <ul>
+    {% for a in artistas %}
+    <li><span>{{ a['Name'] }}</span></li>
+      {% endfor %}
+    </li>
+  </ul>
+</nav>
+<section class="content">
+  <header>{% block header %}{% endblock %}</header>
+  {% for message in get_flashed_messages() %}
+  <div class="flash">{{ message }}</div>
+  {% endfor %} {% block content %}{% endblock %}
+</section>
